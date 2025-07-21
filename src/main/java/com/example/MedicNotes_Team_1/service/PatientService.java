@@ -1,16 +1,13 @@
-package com.example.MedicNotes_Team_1.service;
-// package: com.example.MedicNotes_Team_1.service
 
+package com.example.MedicNotes_Team_1.service;
 
 import com.example.MedicNotes_Team_1.entity.Patient;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
 import java.util.List;
 
 public interface PatientService {
-
-    String addPatient(Patient patient, MultipartFile image);
+    Patient addPatient(Patient patient);
 
     List<Patient> getAllPatients();
 
@@ -32,7 +29,7 @@ public interface PatientService {
 
     List<Patient> getPatientsByTreatment(String treatment);
 
-    String updatePatient(Long id, Patient updatedPatient, MultipartFile image);
+    void updatePatient(Long id, Patient patient);
 
     void deletePatient(Long id);
 }

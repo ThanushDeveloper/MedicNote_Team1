@@ -3,6 +3,7 @@
 package com.example.MedicNotes_Team_1.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -14,7 +15,9 @@ public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long patientId;
+    @Column(name = "id") // Match actual column
+    private Long patientId; // Variable name can stay
+
 
     private String name;
     private String email;
@@ -31,8 +34,9 @@ public class Patient {
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @JsonIgnore
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
     private String password;
+
 
     @Lob
     private byte[] patientImage;
